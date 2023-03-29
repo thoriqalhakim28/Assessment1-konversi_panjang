@@ -3,6 +3,7 @@ package org.d3if3139.assessment1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
@@ -45,7 +46,27 @@ class MainActivity : AppCompatActivity() {
                 inputPanjang.text.toString()
             )
         }
+
+        btnReset.setOnClickListener { resetHasil() }
+        tampilkanHasil(false)
     }
+
+    private fun tampilkanHasil(visible: Boolean) {
+        // Menghide tombol reset dan hasil konversi
+        if(!visible) {
+            btnReset.visibility = View.INVISIBLE
+            hasilKonversi.visibility = View.INVISIBLE
+        }else {
+            btnReset.visibility = View.VISIBLE
+            hasilKonversi.visibility = View.VISIBLE
+        }
+    }
+
+    private fun resetHasil() {
+        inputPanjang.text?.clear()
+        tampilkanHasil(false)
+    }
+
 
     private fun konversiPanjang(dari: String, ke: String, nilai: String) {
 
@@ -121,6 +142,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         hasilKonversi.text = hasil.toString()
+        tampilkanHasil(true)
     }
-
 }
