@@ -83,6 +83,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
                         <AutoCompleteTextView
+                            android:id="@+id/dari"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
 
@@ -146,6 +147,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
                         <AutoCompleteTextView
+                            android:id="@+id/ke"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
 
