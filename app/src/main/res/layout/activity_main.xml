@@ -129,14 +129,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginTop="8dp"
                         android:layout_marginRight="8dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
+                            android:id="@+id/hasil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:text="Hasil"/>
+                            android:textSize="32sp"
+                            />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
