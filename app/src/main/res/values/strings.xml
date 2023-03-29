@@ -7,4 +7,15 @@
     <string name="ke">Ke</string>
     <string name="tombolKonversi">Konversi</string>
     <string name="tombolReset">Reset</string>
+    <string name="tidak_sama">Satuan tidak boleh sama</string>
+
+    <string-array name="list_panjang">
+        <item>km</item>
+        <item>hm</item>
+        <item>dam</item>
+        <item>m</item>
+        <item>dm</item>
+        <item>cm</item>
+        <item>mm</item>
+    </string-array>
 </resources>
