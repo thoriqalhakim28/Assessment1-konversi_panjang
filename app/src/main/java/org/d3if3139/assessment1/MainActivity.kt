@@ -1,5 +1,6 @@
 package org.d3if3139.assessment1
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,8 +8,10 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import org.d3if3139.assessment1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnKonversi : Button
     lateinit var btnReset : Button
     lateinit var hasilKonversi : TextView
+    lateinit var switchBtn : androidx.appcompat.widget.SwitchCompat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         btnReset = binding.btnReset
         inputPanjang = binding.inputPanjang
         hasilKonversi = binding.hasil
+        switchBtn = binding.gantiTema
 
         val satuan_panjang = resources.getStringArray(R.array.satuan_panjang)
         val adapter = ArrayAdapter(this, R.layout.list_panjang, satuan_panjang)
@@ -49,7 +54,31 @@ class MainActivity : AppCompatActivity() {
 
         btnReset.setOnClickListener { resetHasil() }
         tampilkanHasil(false)
+
+        val sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE)
+        val modeGelap = sharedPreferences.getBoolean("night", false)
+        val editor = sharedPreferences.edit()
+
+        if(modeGelap) {
+            switchBtn.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
+        switchBtn.setOnCheckedChangeListener { gantiMode, isChecked ->
+            if(!isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor.putBoolean("night", false)
+                editor.apply()
+
+            }else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor.putBoolean("night",true)
+                editor.apply()
+            }
+        }
+
     }
+
 
     private fun tampilkanHasil(visible: Boolean) {
         // Menghide tombol reset dan hasil konversi

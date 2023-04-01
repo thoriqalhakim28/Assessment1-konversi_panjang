@@ -13,4 +13,24 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="background">
+        <item name="android:background">#005660</item>
+    </style>
+
+    <style name="colorButton">
+        <item name="android:backgroundTint">#313234</item>
+        <item name="android:textColor">#00ACC2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:buttonStyle">@style/Widget.Material3.Button.ElevatedButton</item>
+    </style>
+
+    <style name="card">
+        <item name="android:backgroundTint">#313234</item>
+    </style>
+
+    <style name="textView">
+        <item name="android:textColor">#00ACC2</item>
+    </style>
+
 </resources>
